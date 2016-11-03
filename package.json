@@ -1,0 +1,29 @@
+{
+  "name": "wp-stack-deploy",
+  "version": "1.0.0",
+  "description": "Automatic Deployment of WP based on a json config file",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/preda-bogdan/wp-stack-deploy.git"
+  },
+  "author": "Bogdan Preda",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/preda-bogdan/wp-stack-deploy/issues"
+  },
+  "homepage": "https://github.com/preda-bogdan/wp-stack-deploy#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-composer": "^0.4.0",
+    "gulp-git": "^1.12.0",
+    "gulp-prompt": "^0.2.0",
+    "gulp-run": "^1.7.1",
+    "gulp-shell": "^0.5.2",
+    "randomstring": "^1.1.5",
+    "util": "^0.10.3"
+  }
+}
