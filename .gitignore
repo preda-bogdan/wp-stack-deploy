@@ -5,3 +5,8 @@ tools
 wp-core
 node_modules
 dumps
+theme
+*.sql
+wp-cli.json
+wp-cli.yaml
+wp-cli.yml

@@ -18,11 +18,10 @@
   "homepage": "https://github.com/preda-bogdan/wp-stack-deploy#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-composer": "^0.4.0",
     "gulp-git": "^1.12.0",
-    "gulp-prompt": "^0.2.0",
+    "gulp-json-to-yaml": "0.0.2",
+    "gulp-rename": "^1.2.2",
     "gulp-run": "^1.7.1",
-    "gulp-shell": "^0.5.2",
     "randomstring": "^1.1.5",
     "util": "^0.10.3"
   }
