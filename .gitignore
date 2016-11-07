@@ -1,1 +1,7 @@
 .idea
+git
+output
+tools
+wp-core
+node_modules
+dumps

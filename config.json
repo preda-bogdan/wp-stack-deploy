@@ -1,0 +1,18 @@
+{
+    "wp-version": "latest",
+    "url": "http://localhost/wp-stack-deploy/",
+    "db-user": "root",
+    "db-pass": "ppp0e%%AMG",
+    "db-name": "",
+    "theme": {
+        "git": "git@github.com:Codeinwp/revivesocial.git",
+        "slug": "revive-old-post",
+        "version": "latest"
+    },
+    "plugins": {
+        "slug": {
+            "git": "",
+            "ver": ""
+        }
+    }
+}
