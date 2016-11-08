@@ -307,6 +307,109 @@ gulp.task('wp-update-user-options', function() {
     }
 });
 
+gulp.task('clean', function() {
+    console.log('Starting Clean');
+
+    console.log('Dropping DB');
+    run('php tools/wp-cli.phar db query --path=wp-core/ < clean.sql').exec(function() {
+        console.log('Cleaning clean.sql');
+        fs.stat('clean.sql', function(err, stat) {
+            if(err == null) {
+                run('rm -rf clean.sql').exec(
+                    function () {
+                        console.log('clean.sql Removed');
+                    }).on('error', errorHandler).pipe(gulp.dest('output'));
+            } else {
+                console.log('No clean.sql Found');
+            }
+        });
+
+        console.log('Cleaning tools');
+        fs.stat('tools/', function(err, stat) {
+            if(err == null) {
+                run('rm -rf tools').exec(
+                    function () {
+                        console.log('tools Dir Removed');
+                    }).on('error', errorHandler).pipe(gulp.dest('output'));
+            } else {
+                console.log('No tools Dir Found');
+            }
+        });
+    }).on('error', errorHandler).pipe(gulp.dest('output'));
+
+    console.log('Cleaning git');
+    fs.stat('git/', function(err, stat) {
+        if(err == null) {
+            run('rm -rf git').exec(
+                function () {
+                    console.log('git Dir Removed');
+                }).on('error', errorHandler).pipe(gulp.dest('output'));
+        } else {
+            console.log('No git Dir Found');
+        }
+    });
+
+    console.log('Cleaning wp-core');
+    fs.stat('wp-core/', function(err, stat) {
+        if(err == null) {
+            run('rm -rf wp-core').exec(
+                function () {
+                    console.log('wp-core Dir Removed');
+                }).on('error', errorHandler).pipe(gulp.dest('output'));
+        } else {
+            console.log('No wp-core Dir Found');
+        }
+    });
+
+    console.log('Cleaning '+config['theme']['slug']+'.sql');
+    fs.stat(''+config['theme']['slug']+'.sql', function(err, stat) {
+        if(err == null) {
+            run('rm -rf '+config['theme']['slug']+'.sql').exec(
+                function () {
+                    console.log(''+config['theme']['slug']+'.sql Removed');
+                }).on('error', errorHandler).pipe(gulp.dest('output'));
+        } else {
+            console.log('No '+config['theme']['slug']+'.sql Found');
+        }
+    });
+
+    console.log('Cleaning wp-cli.json');
+    fs.stat('wp-cli.json', function(err, stat) {
+        if(err == null) {
+            run('rm -rf wp-cli.json').exec(
+                function () {
+                    console.log('wp-cli.json Removed');
+                }).on('error', errorHandler).pipe(gulp.dest('output'));
+        } else {
+            console.log('No wp-cli.json Found');
+        }
+    });
+
+    console.log('Cleaning wp-cli.yaml');
+    fs.stat('wp-cli.yaml', function(err, stat) {
+        if(err == null) {
+            run('rm -rf wp-cli.yaml').exec(
+                function () {
+                    console.log('wp-cli.yaml Removed');
+                }).on('error', errorHandler).pipe(gulp.dest('output'));
+        } else {
+            console.log('No wp-cli.yaml Found');
+        }
+    });
+
+    console.log('Cleaning wp-cli.yml');
+    fs.stat('wp-cli.yml', function(err, stat) {
+        if(err == null) {
+            run('rm -rf wp-cli.yml').exec(
+                function () {
+                    console.log('wp-cli.yml Removed');
+                }).on('error', errorHandler).pipe(gulp.dest('output'));
+        } else {
+            console.log('No wp-cli.yml Found');
+        }
+    });
+});
+
 gulp.task('default', ['get-wp-cli']);
 
 function errorHandler (error) {
